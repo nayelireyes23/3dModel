@@ -1,0 +1,76 @@
+<!doctype HTML>
+<html lang="esp">
+  <head>
+<title>MODEL 3D NAYELI</title>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
+<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
+<!-- MDB -->
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet"/>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .btn1{
+      color:darkmagenta;
+      text-align: center;
+      font-size: 100%;
+      height: 55px;
+      width: 200px;
+      border-radius: 35px 0px 35px 0px; 
+      border-color: black;
+     }
+  </style>
+
+<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+  <button type="button" class="btn1" id="boton1"><b>Cachorro Dálmata</b></button>
+  <button type="button" class="btn1" id="boton2"><b>Brazo Robótico</b></button>
+  <button type="button" class="btn1" id="boton3"><b>Tortuga</b></button>
+  <button type="button" class="btn1" id="boton4"><b>Dado: Animación</b></button>
+</div>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: false">  
+      <a-marker preset="hiro">
+        <a-entity id="cube">
+            <a-animation atribute="rotation" to ="180 90 75" dur="1000" easing="linear" repeat="indefinite"></a-animation>
+        </a-entity>
+        <a-entity id="entityID1" crossOrigin="anonymous">
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+<script>
+  //Modelo 3D Cachorro Dálmata
+    document.getElementById("boton1").addEventListener("click", (e)=>{
+                    var el = document.querySelector('#entityID1');
+                    el.setAttribute("obj-model", 'obj:url(Dog_1p2.obj);mtl:url(Dog_1p2.mtl)');
+                    el.setAttribute("scale",'2.5 2.5 2.5'); })
+  //Modelo 3D Dado con Animación
+document.getElementById("boton4").addEventListener("click", (e)=>{
+                    var el = document.querySelector('#cube');
+                    el.setAttribute("obj-model", 'obj:url(dado_naye.obj);mtl:url(dado_naye.mtl)');
+                    el.setAttribute("scale",'.009 .009 .009'); })
+  //Modelo 3D Brazo Robótico
+document.getElementById("boton2").addEventListener("click", (e)=>{
+                    var el = document.querySelector('#entityID1');
+                    el.setAttribute("obj-model", 'obj:url(brazo+mecanico_para+max.obj);mtl:url(brazo+mecanico_para+max.mtl)');
+                    el.setAttribute("scale",'.40 .40 .40');  })
+  // Modelo 3D Tortuga
+document.getElementById("boton3").addEventListener("click", (e)=>{
+                    var el = document.querySelector('#entityID1');
+                    el.setAttribute("obj-model", 'obj:url(tortuga.obj);mtl:url(tortuga.mtl)');
+                    el.setAttribute("scale",'1.5 1.5 1.5');  })
+</script>  
+</body>
+</html>
+
+
+
+
